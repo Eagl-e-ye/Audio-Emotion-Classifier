@@ -57,7 +57,7 @@ The 2-channel input is formed by stacking MFCC and Mel Spectrogram features for 
 
 ### 🔧 Overfitting & Optimization Strategies
 
-Early training runs showed clear signs of **overfitting**—with high training accuracy and low validation performance. To address this, the following strategies were implemented:
+Early training runs showed clear signs of **overfitting**. To address this, the following strategies were implemented:
 
 - 🔁 **Dropout Regularization**:
   - Used both `Dropout2d` in convolutional blocks and `Dropout` in dense layers
