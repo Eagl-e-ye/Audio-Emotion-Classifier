@@ -21,7 +21,7 @@ The combined feature tensor is then fed into a Convolutional Neural Network (CNN
 
 - **MFCC** and **Mel Spectrogram** were generated separately using the same configuration:
   - `n_mels` = *128*
-  - Time frames selected to match after trimming
+  - `n_fft` = *1024*
 - Converted **Mel Spectrogram** to **log scale** to simulate human hearing
 - **Normalized** the features
 - **Stacked** MFCC and Mel Spectrogram into a **2-channel tensor**, suitable as CNN input
