@@ -42,8 +42,7 @@ The architecture (`DeepAudioEmotionCNN`) consists of:
     - Batch normalization and ReLU activation
     - Max pooling for downsampling
     - 2D dropout for regularization
-- **Global Average Pooling**:
-  - Reduces the spatial dimension to `1×1` while retaining deep semantic features
+
 - **Dense Classifier**:
   - A 3-layer fully connected head:
     - `512 → 256 → 128 → num_classes`
