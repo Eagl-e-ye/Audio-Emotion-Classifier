@@ -102,20 +102,20 @@ Early training runs showed clear signs of **overfitting**. To address this, the 
 The model demonstrated strong performance on the emotion classification task, particularly after combining **Mel Spectrogram** and **MFCC** features into a 2-channel input.
 
 ### 🔹 Individual Feature Evaluation:
-- **Mel Spectrogram only**: Achieved accuracy ranging from **80% to 85%**
-- **MFCC only**: Achieved accuracy in the same range (**80% to 85%**)
+- **Mel Spectrogram only**: Achieved accuracy ranging from **70% to 75%**
+- **MFCC only**: Achieved accuracy in the same range (**70% to 75%**)
 - These results confirmed both were effective, but had limitations when used in isolation
 
 ### 🔹 Combined Feature Input (MFCC + Mel Spectrogram):
-- Initial training accuracy: **95%+**
-- Final training accuracy: **100%** after sufficient epochs
+- Initial training accuracy: **85%+**
+- Final training accuracy: **~90%** after sufficient epochs
 - The combined approach enabled the model to learn richer emotional cues from the audio
 
 ---
 
 ### 🧾 Final Evaluation Metrics:
-- **Overall Accuracy**: `100.00%`
-- **F1 Score (Macro-Averaged)**: `100.00%`
+- **Overall Accuracy**: `95.00%`
+- **F1 Score (Macro-Averaged)**: `95.00%`
 
 #### ✅ Per-Class Accuracy:
 | Class | Accuracy     |
