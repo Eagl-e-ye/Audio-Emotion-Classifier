@@ -99,13 +99,50 @@ Early training runs showed clear signs of **overfitting**. To address this, the 
 
 ## 📈 Performance
 
-> [To be filled after you provide accuracy matrix and training logs]
+The model demonstrated strong performance on the emotion classification task, particularly after combining **Mel Spectrogram** and **MFCC** features into a 2-channel input.
 
-- Separate use of Mel Spectrogram and MFCC:
-  - Accuracy ranged from **80% to 85%**
-- Combined input (Mel + MFCC):
-  - Achieved **95%+ accuracy on initial training**
-  - Reached **~100% training accuracy** with increased epochs
+### 🔹 Individual Feature Evaluation:
+- **Mel Spectrogram only**: Achieved accuracy ranging from **80% to 85%**
+- **MFCC only**: Achieved accuracy in the same range (**80% to 85%**)
+- These results confirmed both were effective, but had limitations when used in isolation
+
+### 🔹 Combined Feature Input (MFCC + Mel Spectrogram):
+- Initial training accuracy: **95%+**
+- Final training accuracy: **100%** after sufficient epochs
+- The combined approach enabled the model to learn richer emotional cues from the audio
+
+---
+
+### 🧾 Final Evaluation Metrics:
+- **Overall Accuracy**: `100.00%`
+- **F1 Score (Macro-Averaged)**: `100.00%`
+
+#### ✅ Per-Class Accuracy:
+| Class | Accuracy     |
+|-------|--------------|
+| 0     | 100.00%      |
+| 1     | 100.00%      |
+| 2     | 100.00%      |
+| 3     | 100.00%      |
+| 4     | 100.00%      |
+| 5     | 100.00%      |
+| 6     | 100.00%      |
+| 7     | 100.00%      |
+
+---
+
+### 📊 Confusion Matrix:
+
+|       | Pred 0 | Pred 1 | Pred 2 | Pred 3 | Pred 4 | Pred 5 | Pred 6 | Pred 7 |
+|-------|--------|--------|--------|--------|--------|--------|--------|--------|
+| **True 0** | 37     | 0      | 0      | 0      | 0      | 0      | 0      | 0      |
+| **True 1** | 0      | 63     | 0      | 0      | 0      | 0      | 0      | 0      |
+| **True 2** | 0      | 0      | 79     | 0      | 0      | 0      | 0      | 0      |
+| **True 3** | 0      | 0      | 0      | 78     | 0      | 0      | 0      | 0      |
+| **True 4** | 0      | 0      | 0      | 0      | 74     | 0      | 0      | 0      |
+| **True 5** | 0      | 0      | 0      | 0      | 0      | 85     | 0      | 0      |
+| **True 6** | 0      | 0      | 0      | 0      | 0      | 0      | 35     | 0      |
+| **True 7** | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 40     |
 
 ---
 
