@@ -75,6 +75,10 @@ Early training runs showed clear signs of **overfitting**. To address this, the 
   - Combined MFCC and Mel Spectrogram features into a single **2-channel input**
   - This fusion significantly improved generalization performance and validation accuracy
 
+- 🧂 **Label Smoothing**:
+  - Introduced label smoothing with a final smoothing factor of 0.05
+  - Helped reduce overconfidence in predictions and improved model calibration on unseen data
+
 ---
 
 ### 🕒 Training Considerations
