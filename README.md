@@ -69,7 +69,6 @@ Early training runs showed clear signs of **overfitting**. To address this, the 
 
 - ⚙️ **Learning Rate Tuning**:
   - Tried different learning rates (`1e-3`, `5e-4`, `1e-4`)
-  - Settled on a balance that offered fast convergence without instability
 
 - 🔀 **Feature Fusion**:
   - Combined MFCC and Mel Spectrogram features into a single **2-channel input**
@@ -79,13 +78,19 @@ Early training runs showed clear signs of **overfitting**. To address this, the 
   - Introduced label smoothing with a final smoothing factor of 0.05
   - Helped reduce overconfidence in predictions and improved model calibration on unseen data
 
+- ⚖️ Class Imbalance Handling:
+  - Observed imbalanced class distribution in the dataset
+  - Applied class weighting in the loss function using weights:
+    [1.3, 1.0, 2.0, 3.5, 1.0, 1.5, 2.0, 1.0]
+  - This helped the model pay more attention to underrepresented and lower-performing classes
+
 ---
 
 ### 🕒 Training Considerations
 
 - Training time increased due to deeper architecture and higher input dimensionality
 - Despite the heavier compute requirement, the performance boost was substantial
-- With proper tuning and feature combination, the model achieved **over 95% accuracy** and eventually **100% training accuracy** with more epochs
+- With proper tuning and feature combination, the model achieved **82-84%** accuracy
 
 ---
 
@@ -110,32 +115,31 @@ Early training runs showed clear signs of **overfitting**. To address this, the 
 The model demonstrated strong performance on the emotion classification task, particularly after combining **Mel Spectrogram** and **MFCC** features into a 2-channel input.
 
 ### 🔹 Individual Feature Evaluation:
-- **Mel Spectrogram only**: Achieved accuracy ranging from **70% to 75%**
-- **MFCC only**: Achieved accuracy in the same range (**70% to 75%**)
+- **Mel Spectrogram only**: Achieved accuracy ranging from **50% to 55%**
+- **MFCC only**: Achieved accuracy in the same range (**50% to 60%**)
 - These results confirmed both were effective, but had limitations when used in isolation
 
 ### 🔹 Combined Feature Input (MFCC + Mel Spectrogram):
-- Initial training accuracy: **85%+**
-- Final training accuracy: **~90%** after sufficient epochs
+- Final training accuracy: **~83%** after sufficient epochs
 - The combined approach enabled the model to learn richer emotional cues from the audio
 
 ---
 
 ### 🧾 Final Evaluation Metrics:
-- **Overall Accuracy**: `95.00%`
-- **F1 Score (Macro-Averaged)**: `95.00%`
+- **Overall Accuracy**: `82.50%`
+- **F1 Score (Macro-Averaged)**: `82.29%`
 
 #### ✅ Per-Class Accuracy:
 | Class | Accuracy     |
 |-------|--------------|
-| 0     | 100.00%      |
-| 1     | 100.00%      |
-| 2     | 100.00%      |
-| 3     | 100.00%      |
-| 4     | 100.00%      |
-| 5     | 100.00%      |
-| 6     | 100.00%      |
-| 7     | 100.00%      |
+| 0     | 84.21%      |
+| 1     | 82.67%      |
+| 2     | 82.67%      |
+| 3     | 78.67%      |
+| 4     | 88.00%      |
+| 5     | 78.67%      |
+| 6     | 84.62%      |
+| 7     | 82.05%      |
 
 ---
 
@@ -143,14 +147,14 @@ The model demonstrated strong performance on the emotion classification task, pa
 
 |       | Pred 0 | Pred 1 | Pred 2 | Pred 3 | Pred 4 | Pred 5 | Pred 6 | Pred 7 |
 |-------|--------|--------|--------|--------|--------|--------|--------|--------|
-| **True 0** | 37     | 0      | 0      | 0      | 0      | 0      | 0      | 0      |
-| **True 1** | 0      | 63     | 0      | 0      | 0      | 0      | 0      | 0      |
-| **True 2** | 0      | 0      | 79     | 0      | 0      | 0      | 0      | 0      |
-| **True 3** | 0      | 0      | 0      | 78     | 0      | 0      | 0      | 0      |
-| **True 4** | 0      | 0      | 0      | 0      | 74     | 0      | 0      | 0      |
-| **True 5** | 0      | 0      | 0      | 0      | 0      | 85     | 0      | 0      |
-| **True 6** | 0      | 0      | 0      | 0      | 0      | 0      | 35     | 0      |
-| **True 7** | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 40     |
+| **True 0** | 32     | 1      | 1      | 4      | 0      | 0      | 0      | 0      |
+| **True 1** | 4      | 62     | 2      | 7      | 0      | 0      | 0      | 0      |
+| **True 2** | 2      | 1      | 62     | 2      | 2      | 3      | 1      | 2      |
+| **True 3** | 1      | 2      | 1      | 59     | 1      | 10     | 0      | 1      |
+| **True 4** | 0      | 0      | 0      | 0      | 66     | 0      | 7      | 2      |
+| **True 5** | 0      | 0      | 2      | 10     | 2      | 59     | 1      | 1      |
+| **True 6** | 0      | 0      | 1      | 1      | 1      | 2      | 33     | 1      |
+| **True 7** | 1      | 0      | 1      | 0      | 0      | 1      | 4      | 32     |
 
 ---
 
