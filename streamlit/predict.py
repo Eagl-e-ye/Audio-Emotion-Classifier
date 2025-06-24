@@ -19,9 +19,6 @@ def predict_emotion(extracted_data, sr=22050):
     
     target_length = int(3.6 * sr) 
     
-  
-    y, _ = librosa.effects.trim(extracted_data, top_db=20)
-
     if len(y) < target_length:
         pad_total = target_length - len(y)
         pad_left = pad_total // 2
