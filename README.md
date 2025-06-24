@@ -15,12 +15,9 @@ The combined feature tensor is then fed into a Convolutional Neural Network (CNN
 
 - Loaded `.wav` files of variable lengths.
 - Data augmentation: 
-  -Pitch Shifting:
-   Randomly shifted the pitch up or down by up to ±2 semitones
-  -Time Stretching:
-   Temporally stretched or compressed the audio by a random factor between 0.9 and 1.1, then resampled to maintain original length.
-  -Additive Gaussian Noise:
-   Added low-level Gaussian noise with an amplitude scaled to 0.5% of the signal max amplitude to simulate background noise.
+  -Pitch Shifting: Randomly shifted the pitch up or down by up to ±2 semitones
+  -Time Stretching: Temporally stretched or compressed the audio by a random factor between 0.9 and 1.1, then resampled to maintain original length.
+  -Additive Gaussian Noise: Added low-level Gaussian noise with an amplitude scaled to 0.5% of the signal max amplitude to simulate background noise.
 - Duration normalization: After analyzing the dataset, the useful content was found to average around **3.5 seconds**, so each audio was trimmed or padded to this fixed duration.
 
 ### 🎧 Feature Extraction
