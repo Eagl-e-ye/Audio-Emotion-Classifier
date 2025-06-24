@@ -52,21 +52,20 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 def predict_audio(model, filepath, sr=22050, n_mels=128):
     try:
         y, _ = librosa.load(filepath, sr=sr)
-        y, _ = librosa.effects.trim(y, top_db=20)
         
-        target_length = int(3.5 * sr)
+        target_length = int(3.6 * sr)
         if len(y) < target_length:
             y = np.pad(y, ((target_length - len(y)) // 2, (target_length - len(y) + 1) // 2))
         else:
             start = (len(y) - target_length) // 2
             y = y[start:start + target_length]
 
-        mel_spec = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=n_mels, n_fft=1024, hop_length=512)
+        mel_spec = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=128, n_fft=1024, hop_length=512)
         log_mel_spec = librosa.power_to_db(mel_spec, ref=np.max)
-        log_mel_spec = (log_mel_spec - log_mel_spec.min()) / (log_mel_spec.max() - log_mel_spec.min())
+        log_mel_spec = (log_mel_spec - np.mean(log_mel_spec)) / (np.std(log_mel_spec) + 1e-8)
 
-        mfcc = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=n_mels, n_fft=1024, hop_length=512)
-        mfcc = (mfcc - mfcc.min()) / (mfcc.max() - mfcc.min())
+        mfcc = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=128, n_fft=1024, hop_length=512)
+        mfcc = (mfcc - np.mean(mfcc)) / (np.std(mfcc) + 1e-8)
 
         input_tensor = torch.tensor(np.stack([log_mel_spec, mfcc]), dtype=torch.float32).unsqueeze(0).to(device)
         
