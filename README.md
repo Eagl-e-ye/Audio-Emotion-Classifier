@@ -55,7 +55,6 @@ The architecture (`DeepAudioEmotionCNN`) consists of:
 > **Input:** `(batch_size, 2, 128, time_frames)`  
 > **Output:** `(batch_size, num_classes=8)`
 
-The 2-channel input is formed by stacking MFCC and Mel Spectrogram features for each audio clip.
 
 ---
 
