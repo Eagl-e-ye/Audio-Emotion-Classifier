@@ -7,6 +7,8 @@ To achieve accurate emotion recognition, the system leverages advanced audio pro
 
 The combined feature tensor is then fed into a Convolutional Neural Network (CNN) that learns to model subtle variations in tone, pitch, and intensity associated with different emotional states. This approach enables the model to effectively identify and categorize diverse emotions expressed in speech or song, delivering robust classification performance.
 
+_"Steps to Reproduce Results" at the end of the page⬇️_
+
 ---
 
 ## 🔄 Pre-processing Methodology
