@@ -14,19 +14,26 @@ The combined feature tensor is then fed into a Convolutional Neural Network (CNN
 ### 🔉 Audio Loading and Trimming
 
 - Loaded `.wav` files of variable lengths.
-- Silence removal: Trimmed the start and end of each file using a decibel threshold of **< 20 dB** to eliminate low-energy silence.
+- Data augmentation: 
+  -Pitch Shifting:
+   Randomly shifted the pitch up or down by up to ±2 semitones
+  -Time Stretching:
+   Temporally stretched or compressed the audio by a random factor between 0.9 and 1.1, then resampled to maintain original length.
+  -Additive Gaussian Noise:
+   Added low-level Gaussian noise with an amplitude scaled to 0.5% of the signal max amplitude to simulate background noise.
 - Duration normalization: After analyzing the dataset, the useful content was found to average around **3.5 seconds**, so each audio was trimmed or padded to this fixed duration.
 
 ### 🎧 Feature Extraction
 
 - **MFCC** and **Mel Spectrogram** were generated separately using the same configuration:
   - `n_mels` = *128*
-  - `n_fft` = *1024*
+  - Time frames selected to match after trimming
 - Converted **Mel Spectrogram** to **log scale** to simulate human hearing
 - **Normalized** the features
 - **Stacked** MFCC and Mel Spectrogram into a **2-channel tensor**, suitable as CNN input
 
 ---
+
 
 ## 🧠 Model Pipeline
 
