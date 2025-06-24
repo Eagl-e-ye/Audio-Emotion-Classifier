@@ -11,11 +11,12 @@
 
 ### 💻streamlit
 - Includes everything required to launch the web application:
-- app.py: Main file to run the Streamlit app.
+- app.py: Main file to run the Streamlit app. (streamlit run app.py  )
 - Supporting modules and resources for the interface and model prediction.
-- Note: Before running app.py, make sure to update the path to the .pth model file in the script accordingly.
+- Note: Before running app, make sure to update the path to the .pth model file in the script accordingly.
 
 ---
+
 ## 📌 Project Description
 
 This project aims to design and implement an end-to-end pipeline for emotion classification from speech/audio data using deep learning techniques. Recognizing emotions conveyed through voice is essential for enhancing human-computer interaction, with practical applications in areas such as mental health monitoring, customer service automation, virtual assistants, and multimedia content analysis.
