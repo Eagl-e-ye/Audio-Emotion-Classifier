@@ -172,4 +172,13 @@ The model demonstrated strong performance on the emotion classification task, pa
   - Audio_Speech_Actors_1-24
   - Audio_Song_Actors_1-24
 
+## 🔁 Steps to Reproduce Results
+Follow these instructions to reproduce the training and evaluation of the voice emotion classification model:
+- load the jupyter notebook file and download the datasets
+- install the requirements
+- change the paths of the data according to your computer
+- change the path of to save and load the model
+- to just check the model performance change the path of load model only
+- run all the cell
+
 
