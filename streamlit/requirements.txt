@@ -1,0 +1,7 @@
+streamlit
+streamlit-lottie
+librosa
+matplotlib
+numpy
+requests
+torch
