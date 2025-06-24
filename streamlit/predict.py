@@ -18,7 +18,8 @@ emotions = ["NEUTRAL 😐", "CALM 😌", "HAPPY 😺", "SAD 😥", "ANGRY 😠",
 def predict_emotion(extracted_data, sr=22050):
     
     target_length = int(3.6 * sr) 
-    
+    y= extracted_data
+
     if len(y) < target_length:
         pad_total = target_length - len(y)
         pad_left = pad_total // 2
