@@ -11,10 +11,9 @@
 
 ### 💻streamlit
 - Includes everything required to launch the web application:
-- app.py: Main file to run the Streamlit app.
+- app.py: Main file to run the Streamlit app. (streamlit run app.py  )
 - Supporting modules and resources for the interface and model prediction.
-- Note: Before running app.py, make sure to update the path to the .pth model file in the script accordingly.
-
+- Note: Before running app, make sure to update the path to the .pth model file in the script accordingly.
 
 ---
 
