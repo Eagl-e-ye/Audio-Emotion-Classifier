@@ -1,4 +1,23 @@
 # Audio-Emotion-Classifier
+## 📁 Folders Overview
+### 👨‍💻code
+- Contains files related to training and testing the machine learning model:
+- code.ipynb: Jupyter Notebook containing the full training workflow, model architecture, and evaluation steps.
+- model.pth: Best-performing trained model file saved in PyTorch format.
+- test_model.py: Python script for loading and testing the trained model, as well as evaluating on custom inputs or datasets.
+
+### ▶️media
+- demo.mp4: A demo video showcasing the application in action.
+
+### 💻streamlit
+- Includes everything required to launch the web application:
+- app.py: Main file to run the Streamlit app.
+- Supporting modules and resources for the interface and model prediction.
+- Note: Before running app.py, make sure to update the path to the .pth model file in the script accordingly.
+
+
+---
+
 ## 📌 Project Description
 
 This project aims to design and implement an end-to-end pipeline for emotion classification from speech/audio data using deep learning techniques. Recognizing emotions conveyed through voice is essential for enhancing human-computer interaction, with practical applications in areas such as mental health monitoring, customer service automation, virtual assistants, and multimedia content analysis.
